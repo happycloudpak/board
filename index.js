@@ -8,10 +8,12 @@ var passport       = require("./config/passport");
 var app = express();
 
 // DB setting
+let connStr = process.env.MONGO_DB || "mongodb://root:happycloud@169.56.164.245:30001/admin";
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect(process.env.MONGO_DB);
+console.log("conn =>"+connStr);
+mongoose.connect(connStr);
 var db = mongoose.connection;
 db.once("open", function(){
   console.log("DB connected");
