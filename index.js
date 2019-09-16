@@ -12,7 +12,7 @@ let connStr = process.env.MONGO_DB || "mongodb://root:happycloud@169.56.164.245:
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-console.log("conn =>"+connStr);
+
 mongoose.connect(connStr);
 var db = mongoose.connection;
 db.once("open", function(){
